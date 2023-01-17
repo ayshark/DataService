@@ -6,4 +6,8 @@ export class UserService {
         {name: 'Alex', status: 'active'},
         {name: 'Zach', status: 'inactive'},
     ]
+
+    AddUser(name: string, status: string) {
+        this.Users.push({name: name, status: status})
+    }
 }
