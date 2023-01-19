@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { EventEmitter, Injectable } from "@angular/core";
 import { LogService } from "./log.services";
 
 @Injectable( //used for the receiving service
@@ -18,5 +18,12 @@ export class UserService {
     AddUser(name: string, status: string) {
         this.Users.push({name: name, status: status});
         this.logService.LogMessage(name, status)
+    }
+
+    OnViewClicked = new EventEmitter<{name: string, status: string}>()
+
+    ViewUser(user: {name: string, status: string}) {
+        this.OnViewClicked.emit(user);
+        // console.log('viewuser in user.services implemented');
     }
 }

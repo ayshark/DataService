@@ -18,5 +18,9 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.users = this.userService.Users
   }
+
+  ViewDetails(user: {name: string, status: string}) {
+    this.userService.ViewUser(user);
+  }
   
 }

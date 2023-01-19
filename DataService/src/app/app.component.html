@@ -1,7 +1,11 @@
 <div *ngFor="let user of users">
-  <div class="user">{{ user.name }}</div>
-  <div class="status">{{ user.status }}</div>
+  <div class="user" style="color: red; font-weight: bold;">{{ user.name }}</div>
+  <!-- <div class="status">{{ user.status }}</div> -->
+  <button class="btn btn-primary" (click)="ViewDetails(user)">View Status</button>
   <hr>
+</div>
+<div class="view-user">
+  <app-view-user></app-view-user>
 </div>
 <div class="add-user">
   <app-add-user></app-add-user>
