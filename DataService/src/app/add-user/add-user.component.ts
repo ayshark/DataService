@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { UserService } from '../Services/users.services';
 
 @Component({
@@ -10,15 +11,16 @@ import { UserService } from '../Services/users.services';
 export class AddUserComponent implements OnInit{
 
   name: string = '';
-  status: string = 'inactive';
+  status: string = '';
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private http: HttpClient) {}
 
   ngOnInit(): void {}
 
   AddUser() {
     this.userService.AddUser(this.name, this.status);
-    console.log(this.userService.Users);
+    // console.log(this.userService.Users);
+    this.http.post('http://127.0.0.1:8000/users/', {name: this.name, status: this.status}).subscribe((res) => {});
   }
 
 }
