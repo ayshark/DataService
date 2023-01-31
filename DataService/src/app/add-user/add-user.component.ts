@@ -19,7 +19,6 @@ export class AddUserComponent implements OnInit{
 
   AddUser() {
     this.userService.AddUser(this.name, this.status);
-    // console.log(this.userService.Users);
     this.http.post('http://127.0.0.1:8000/users/', {name: this.name, status: this.status}).subscribe((res) => {});
   }
 
